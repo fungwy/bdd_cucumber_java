@@ -1,4 +1,7 @@
+import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Test;
+
+import java.util.Deque;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -9,16 +12,36 @@ public class AdditionUnitTests {
         // ARRANGE
         int a = 1;
         int b = 2;
-        int expectedAnswer = 3;
+        double expectedAnswer = 3.0;
         Calculator calc = new Calculator();
 
         // ACT
         calc.push(a);
         calc.push(b);
         calc.push("+");
-        int actualAnswer = calc.value();
+        Number actualAnswer = calc.value();
 
         // ASSERT
         assertEquals(expectedAnswer, actualAnswer);
     }
+
+    @Test
+    public void add_int_2_and_int_2_returns_4() {
+        // ARRANGE
+        int a = 2;
+        int b = 2;
+        Number expectedAnswer = 4.0;
+        Calculator calc = new Calculator();
+
+        //ACT
+        calc.push(a);
+        calc.push(b);
+        calc.push("+");
+        Number actualAnswer = calc.value();
+
+        assertEquals(expectedAnswer, actualAnswer);
+
+    }
+
+
 }
